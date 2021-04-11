@@ -29,10 +29,10 @@ export default defineComponent({
 <style scoped lang='scss'>
 .prefixer {
   transform: translateX(-10px);
-  filter: blur(3);
+  filter: blur(4px);
 }
 .rem {
-  font-size: 18px;
-  width: 160px;
+  font-size: 19.2px;
+  width: 375px;
 }
 </style>

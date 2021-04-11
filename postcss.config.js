@@ -6,7 +6,7 @@ module.exports = {
     plugins: [
         autoprefixer,
         px2rem({
-            rootValue: 19.2, //换算基数，1rem相当于10px,值为37.5时,1rem为20px,淘宝的flex默认为1rem为10px
+            rootValue: 16, //换算基数，1rem相当于10px,值为37.5时,1rem为20px,淘宝的flex默认为1rem为10px
             // unitPrecision: 5, //允许REM单位增长到的十进制数字。
             //propWhiteList: [],  //默认值是一个空数组，这意味着禁用白名单并启用所有属性。
             propBlackList: ['border'], //黑名单
