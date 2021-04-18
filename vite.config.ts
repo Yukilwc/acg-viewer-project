@@ -4,6 +4,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     vueJsx({}),
@@ -15,5 +16,8 @@ export default defineConfig({
     modules: {
       scopeBehaviour: "local"
     }
-  }
+  },
+  build: {
+    target: 'es2015'
+  },
 })

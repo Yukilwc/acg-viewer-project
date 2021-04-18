@@ -16,11 +16,9 @@ const CImg = defineComponent({
     setup(props, { }) {
         console.log('styles', styles)
         let src = props.src
-        type ImgStatus = 'completed' | "loading" | "error"
-        let status: Ref<ImgStatus> = ref('loading')
         let renderNode = ref(<div></div>)
         let nodeRef: Ref<Element | null> = ref(null)
-        let loadingNode = <div class={styles['img-loading']}><span class={styles['text']}>加载中</span></div>
+        let loadingNode = <div class={styles['img-loading']}></div>
         let errorNode = <div>加载失败</div>
         let imgNode = <img src={src}></img>
         renderNode.value = loadingNode
@@ -28,17 +26,15 @@ const CImg = defineComponent({
         img.src = src
         img.onload = () => {
             console.log('图片加载完成', src)
-            status.value = 'completed'
-            // renderNode.value = imgNode
         }
         img.onerror = () => {
             console.log('图片加载失败', src)
-            status.value = 'error'
             renderNode.value = errorNode
         }
         onMounted(() => {
             let node = nodeRef.value
-            let loadingNode = node?.querySelector(`.` + styles['img-loading'])
+            if (!node) return
+            let loadingNode = node.querySelector(`.` + styles['img-loading'])
             console.log('loadingNode ', loadingNode)
             if (node !== null && loadingNode) {
                 lottie.loadAnimation({
@@ -51,7 +47,7 @@ const CImg = defineComponent({
             }
         })
         return () => (
-            <div ref={nodeRef} class='c-img-container'>
+            <div ref={nodeRef} class={styles['c-img-container']}>
                 {renderNode.value}
             </div>
         )

@@ -26,9 +26,8 @@ export default defineComponent({
 
 <style lang='scss' scoped>
 .c-img {
-  width: 114px;
-  height: 144px;
-  display: block;
-  object-fit: contain;
+  width: 140px;
+  height: 189px;
+  margin-bottom: 14px;
 }
 </style>

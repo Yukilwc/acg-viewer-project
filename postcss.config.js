@@ -4,7 +4,7 @@ const autoprefixer = require('autoprefixer')
 const px2rem = require('postcss-plugin-px2rem')
 module.exports = {
     plugins: [
-        autoprefixer,
+        // autoprefixer,
         px2rem({
             rootValue: 16, //换算基数，1rem相当于10px,值为37.5时,1rem为20px,淘宝的flex默认为1rem为10px
             // unitPrecision: 5, //允许REM单位增长到的十进制数字。
