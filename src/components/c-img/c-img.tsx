@@ -3,7 +3,9 @@ import { Ref } from 'vue'
 // interface CImgProps {
 //     src: string
 // }
-import styles from './style/c-img.module.scss'
+import styles from './c-img.module.scss'
+import lottie from 'lottie-web'
+import aniData from '../../images/lottie/triangle-loading.json'
 const CImg = defineComponent({
     props: {
         src: {
@@ -17,6 +19,7 @@ const CImg = defineComponent({
         type ImgStatus = 'completed' | "loading" | "error"
         let status: Ref<ImgStatus> = ref('loading')
         let renderNode = ref(<div></div>)
+        let nodeRef: Ref<Element | null> = ref(null)
         let loadingNode = <div class={styles['img-loading']}><span class={styles['text']}>加载中</span></div>
         let errorNode = <div>加载失败</div>
         let imgNode = <img src={src}></img>
@@ -34,9 +37,23 @@ const CImg = defineComponent({
             renderNode.value = errorNode
         }
         onMounted(() => {
+            let node = nodeRef.value
+            let loadingNode = node?.querySelector(`.` + styles['img-loading'])
+            console.log('loadingNode ', loadingNode)
+            if (node !== null && loadingNode) {
+                lottie.loadAnimation({
+                    container: loadingNode, // the dom element that will contain the animation
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    animationData: aniData // the path to the animation json
+                });
+            }
         })
         return () => (
-            renderNode.value
+            <div ref={nodeRef} class='c-img-container'>
+                {renderNode.value}
+            </div>
         )
     }
 })
