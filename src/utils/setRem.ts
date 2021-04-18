@@ -1,10 +1,10 @@
 import { } from './tools'
 
 function setRem() {
-    console.log('==========set rem',);
     let viewWidth = window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth;
+    console.log('==========set rem', viewWidth);
     let rootValue = 16 // 插件配置的基数
     let blueprintSize = 375 // 基于得设计图尺寸
     let htmlFontSize = viewWidth * rootValue / blueprintSize
