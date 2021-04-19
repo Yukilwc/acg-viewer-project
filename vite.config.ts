@@ -15,6 +15,11 @@ export default defineConfig({
   css: {
     modules: {
       scopeBehaviour: "local"
+    },
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "./src/style/tools.scss";' // 添加公共样式
+      }
     }
   },
   build: {

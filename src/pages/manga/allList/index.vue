@@ -56,8 +56,7 @@ export default defineComponent({
         cover:
           "https://ehgt.org/t/9e/91/9e91cf6b18117daab62b0398db9d9ae3de767ac3-4473136-2120-3020-jpg_250.jpg",
         language: "Chinese",
-        name:
-          "(C97) [INST (Interstellar)] CHOKE (Kantai Collection -KanColle-) [Chinese] [零食汉化组]",
+        name: "(C97) [INST (Interstellar)]",
         time: "2020-12-12 15:20",
         artist: "interstellar",
       },
@@ -137,6 +136,8 @@ export default defineComponent({
           .name {
             color: #000000;
             font-size: 16px;
+            width: 100%;
+            @include ellipsis(3);
           }
           .artist {
             margin-top: 10px;
@@ -156,6 +157,7 @@ export default defineComponent({
             color: #fff;
           }
           .bottom-right {
+            text-align: right;
             .language {
               font-size: 14px;
               color: #666666;
