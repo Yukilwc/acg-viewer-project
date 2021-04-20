@@ -44,7 +44,7 @@ const CImg = defineComponent({
             let node = nodeRef.value
             if (!node) return
             let loadingNode = node.querySelector(`.` + styles['img-loading'])
-            console.log('loadingNode ', loadingNode, `.` + styles['img-loading'])
+            // console.log('loadingNode ', loadingNode, `.` + styles['img-loading'])
             if (node !== null && loadingNode) {
                 instance = lottie.loadAnimation({
                     container: loadingNode, // the dom element that will contain the animation

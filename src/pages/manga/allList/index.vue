@@ -1,7 +1,12 @@
 <template>
   <div class="container">
     <div class="list">
-      <div class="item" v-for="(item, index) in list" :key="index">
+      <div
+        class="item"
+        @click="itemClick"
+        v-for="(item, index) in list"
+        :key="index"
+      >
         <div class="left">
           <c-img class="c-img" :src="item.cover"></c-img>
         </div>
@@ -35,11 +40,13 @@ interface IListItem {
   artist: string;
   cover?: string;
 }
+import { useRouter, useRoute } from "vue-router";
 export default defineComponent({
   components: {
     // ListItem,
   },
   setup() {
+    const router = useRouter();
     const list: Ref<IListItem[]> = ref([
       {
         id: 1,
@@ -93,8 +100,15 @@ export default defineComponent({
         artist: "interstellar",
       },
     ]);
+    const itemClick = () => {
+      console.log("==========router push");
+      router.push({
+        path: "/manga/detail",
+      });
+    };
     return {
       list,
+      itemClick,
     };
   },
 });
