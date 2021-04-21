@@ -33,33 +33,23 @@ export default defineComponent({
 </script>
 
 <style>
-body {
+html {
 }
 </style>
 <style lang='scss' scoped>
 .container {
   width: 100%;
-  height: 100vh;
+  height: auto;
   overflow-x: scroll;
   direction: rtl;
-  overflow-y: auto;
+  overflow-y: scroll;
   .wrapper {
     .list {
-      height: 100vh;
+      height: auto;
       display: flex;
-      // align-items: center;
-      // flex-direction: row-reverse;
       .list-item {
         flex: 0 0 auto;
-        // width: 100vh;
-        height: 100vh;
-        // transform: rotate(90deg) translate(100%, -0%);
-        // transform-origin: 100% 0;
-        // img {
-        // width: 100%;
-        // height: auto;
-        // display: block;
-        // }
+        height: auto;
       }
     }
   }

@@ -1,6 +1,15 @@
 <template>
-  <div class="manga-img" :style="{ width: containerWidth }">
-    <img class="img" v-if="completed" ref="imgRef" :src="src" />
+  <div
+    class="manga-img"
+    :style="{ width: containerWidth + 'vh', height: containerHeight + 'vh' }"
+  >
+    <img
+      :style="{ width: containerHeight + 'vh' }"
+      class="img"
+      v-if="completed"
+      ref="imgRef"
+      :src="src"
+    />
     <div v-else class="loading"><span class="text">加载中...</span></div>
   </div>
 </template>
@@ -18,13 +27,15 @@ export default {
     let { src } = toRefs(props);
     const completed = ref(false);
     let imgRef: Ref<Element | null> = ref(null);
-    let containerWidth = ref("0vh");
+    let containerWidth = ref(0);
+    let containerHeight = ref(100);
     let img = new Image();
     img.src = src.value;
     img.onload = () => {
       let originWidth = img.width;
       let originHeight = img.height;
-      containerWidth.value = 100 * (originHeight / originWidth) + "vh";
+      containerWidth.value =
+        containerHeight.value * (originHeight / originWidth);
       console.log("==========", originWidth, originHeight, containerWidth);
       completed.value = true;
     };
@@ -34,6 +45,7 @@ export default {
       imgRef,
       completed,
       containerWidth,
+      containerHeight,
     };
   },
 };
@@ -41,10 +53,8 @@ export default {
 
 <style lang='scss' scoped>
 .manga-img {
-  height: 100vh;
   overflow: hidden;
   .img {
-    width: 100vh;
     height: auto;
     display: block;
     transform: rotate(90deg) translate(100%, -0%);
@@ -52,7 +62,7 @@ export default {
   }
   .loading {
     height: 100%;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
