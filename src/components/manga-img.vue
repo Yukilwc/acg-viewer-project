@@ -27,7 +27,7 @@ export default {
     let { src } = toRefs(props);
     const completed = ref(false);
     let imgRef: Ref<Element | null> = ref(null);
-    let containerWidth = ref(0);
+    let containerWidth = ref(50);
     let containerHeight = ref(100);
     let img = new Image();
     img.src = src.value;
