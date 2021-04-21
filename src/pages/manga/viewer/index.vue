@@ -1,13 +1,13 @@
 <template>
-  <div class="">阅读页</div>
+  <div class="container"></div>
 </template>
 
-<script>
+<script lang='ts'>
 import { defineComponent } from "vue";
 export default defineComponent({
   setup() {},
 });
 </script>
 
-<style>
+<style lang='scss' scoped>
 </style>
