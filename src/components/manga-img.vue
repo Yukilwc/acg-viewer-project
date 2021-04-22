@@ -16,6 +16,9 @@
 
 <script lang='ts'>
 import { toRefs, ref, Ref } from "vue";
+interface IPorps {
+  src: string;
+}
 export default {
   props: {
     src: {
@@ -23,7 +26,7 @@ export default {
       default: "",
     },
   },
-  setup(props) {
+  setup(props: IPorps) {
     let { src } = toRefs(props);
     const completed = ref(false);
     let imgRef: Ref<Element | null> = ref(null);
