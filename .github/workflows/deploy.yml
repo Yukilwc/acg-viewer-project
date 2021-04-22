@@ -23,13 +23,7 @@ jobs:
 
       - name: Build and Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          # 在部署前要checkout的基本分支，默认是master
-          BASE_BRANCH: master
-          # 指定部署的分支，默认是 gh-pages 分支
-          BRANCH: gh-pages
-          # 存储库中要部署的文件夹。
-          # 该步骤会将项目中 FOLDER 指定文件夹下的文件推送到 BRANCH 分支，作为Github Pages 部署的内容。
-          # Vue CLI默认打包到 dist 目录
-          FOLDER: dist
+        with:
+          branch: gh-pages
+          folder: dist
+          ssh-key: ${{secrets.VUE_DEPLOY_PRI}}
