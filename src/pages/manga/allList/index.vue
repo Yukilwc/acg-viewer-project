@@ -69,6 +69,8 @@ export default defineComponent({
       },
       {
         id: 1,
+        cover:
+          "https://i.pximg.net/img-master/img/2020/12/04/03/11/31/86043742_p0_master1200.jpg",
         language: "Chinese",
         name:
           "(C97) [INST (Interstellar)] CHOKE (Kantai Collection -KanColle-) [Chinese] [零食汉化组]",
